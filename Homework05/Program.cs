@@ -1,85 +1,57 @@
 ﻿using System;
-//Task 1
-
-//Create a class "PhotoAlbum" with a private attribute "numberOfPages".
-
-//It should also have a public method "GetNumberOfPages", which will return the number of pages.
-
-//The default constructor will create an album with 16 pages.There will be an additional constructor, 
-//with which we can specify the number of pages we want in the album.
-
-//Create a class "BigPhotoAlbum" whose constructor will create an album with 64 pages.
-
-//In main method create a "PhotoAlbum" instance with its default constructor and one with 24 pages.
-//Also create "BigPhotoAlbum" and show the number of pages that the three albums have.
-
-
 
 namespace Homework05
 {
-    public class BigPhotoAlbum
+    //Task 01 - PhotoAlbum 
+    public class PhotoAlbum
     {
+        public PhotoAlbum()
+        {
+            NumberOfPages = 16;
+        }
+
+        public PhotoAlbum(int numberOfPages)
+        {
+            NumberOfPages = numberOfPages;
+        }
 
         private int NumberOfPages;
 
+        public int GetNumberOfPages()
+        {
+            return NumberOfPages;
+        }
+
+    }
+
+    public class BigPhotoAlbum
+    {
+        public int numberOfPages;
         public BigPhotoAlbum()
         {
-            NumberOfPages = 64;
+            numberOfPages = 64;
         }
-
-        public void GetNumberOfPages()
+        public int GetNumberOfPages()
         {
-
-
-            Console.WriteLine($"I have {NumberOfPages} pages. :)");
+            return numberOfPages;
         }
     }
-
-
-    public class PhotoAlbum
-    {
-
-        public PhotoAlbum()
-        {
-            NumberOFPages = 16;
-        }
-
-        public PhotoAlbum(int numberOFPages)
-        {
-            NumberOFPages = numberOFPages;
-        }
-
-
-        private int NumberOFPages;
-
-        public void GetNumberOfPages()
-        {
-
-
-            Console.WriteLine($"I have {NumberOFPages} pages. :)");
-        }
-    }
-
-
-
 
     class Program
     {
         static void Main(string[] args)
         {
+            PhotoAlbum albumOne = new PhotoAlbum();
+            Console.WriteLine(albumOne.GetNumberOfPages());
 
-            var photoAlbum1 = new PhotoAlbum();
-            photoAlbum1.GetNumberOfPages();
+            PhotoAlbum albumTwo = new PhotoAlbum(24);
+            Console.WriteLine(albumTwo.GetNumberOfPages());
 
-            var photoAlbum2 = new PhotoAlbum(24);
-            photoAlbum2.GetNumberOfPages();
+            BigPhotoAlbum bigPhotoAlbum = new BigPhotoAlbum();
+            Console.WriteLine(bigPhotoAlbum.GetNumberOfPages());
 
-            var bigPhotoAlbum = new BigPhotoAlbum();
-            bigPhotoAlbum.GetNumberOfPages();
+            Console.ReadLine();    
 
-
-
-            Console.ReadLine();
         }
     }
 }
